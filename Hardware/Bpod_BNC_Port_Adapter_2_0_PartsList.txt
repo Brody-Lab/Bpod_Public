@@ -1,0 +1,10 @@
+Bpod BNC Port Adapter 2.0 Parts List
+
+Item				Company		Part		Quantity	Source
+
+1.5 foot ethernet cable		Amazon		B00XIFNPOW	2		https://www.amazon.com/dp/B00XIFNPOW
+6 inch BNC cable		Monoprice	#16180		4		https://www.monoprice.com/product?p_id=16183
+JRJ45, Ethernet Jack		Digi-key	A31442-ND	5		https://www.digikey.com/en/products/detail/te-connectivity-amp-connectors/5555164-1/769586?s=N4IgTCBcDaIIIGYCMAWFYC0A5AIiAugL5A
+BNC Connector Jack		Digi-key	A97562-ND	4		https://www.digikey.com/en/products/detail/te-connectivity-amp-connectors/1-1634622-0/1755949?s=N4IgTCBcDaIIIE4DsBWAbGAtAOQCIgF0BfIA
+
+
