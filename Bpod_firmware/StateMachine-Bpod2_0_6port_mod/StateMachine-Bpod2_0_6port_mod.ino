@@ -517,15 +517,16 @@ for (int i = 0; i < nOutputs; i++) {
         logicLow[i] = isolatorLow;
       break; 
       case 'P':
-        if (InputCh[i] < 10) {
-          pinMode(InputCh[i], INPUT_PULLUP);
-          logicHigh[i] = 0;
-          logicLow[i]  = 1;
-        } else {
+        // First attempt to make BNC work as port but it only worked for poke in out and not hi lo
+        //if (InputCh[i] < 10) {
+        //  pinMode(InputCh[i], INPUT_PULLUP);
+        //  logicHigh[i] = 0;
+        //  logicLow[i]  = 1;
+        //} else {
           pinMode(InputCh[i], INPUT);
           logicHigh[i] = 1;
           logicLow[i]  = 0;
-        }
+        //}
       break;  
       case 'U': 
           switch(Byte1) {
@@ -1000,9 +1001,14 @@ void handler() { // This is the timer handler function, which is called every (t
       setStateOutputs(CurrentState); // Adjust outputs, global timers, serial codes and sync port for first state
     } else {
       CurrentTime++;
+      // Inputs < 10 are the BNCs which behave backwards to regular ports
       for (int i = PortInputPos; i < nInputs; i++) {
           if (inputEnabled[i] && !inputOverrideState[i]) {
-            inputState[i] = digitalReadDirect(InputCh[i]); 
+            if (InputCh[i] < 10) {
+              inputState[i] = !digitalReadDirect(InputCh[i]);
+            } else {
+              inputState[i] = digitalReadDirect(InputCh[i]); 
+            }
           } 
       }
       // Determine if a handled condition occurred
