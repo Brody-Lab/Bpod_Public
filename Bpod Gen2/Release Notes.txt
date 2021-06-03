@@ -1,0 +1,31 @@
+---v1.58---
+-Added software to keep MATLAB software current: UpdateBpodSoftware(). Currently requires Win7 or Win10 with MATLAB r2014b+
+-Added firmware update app to keep Bpod firmware current: UpdateBpodFirmware(). Currently requires Win7 or Win10.
+-Fixed axes display in TrialTypeOutcomePlot plugin
+-Minor optimization to AddState() function (now uses prepared vectors instead of ones() and zeros() to populate defaults)
+-Removed drawnow() from update method of BpodParameterGUI to reduce inter-trial dead-time on MATLAB versions newer than r2014b
+-Fixed a bug in TrialManager() that would cause crashes when state names varied between trials
+-Disabled PhoneHome transmissions on boot and protocol-start (to resume once Sanworks has a 100% reliable web host)
+
+---v1.57---
+-Fixes to analog input module class (+matching fixes to its firmware repository), fix streaming to scope UI at sampling rates >1kHz
+
+---v1.56---
+-Updated current state machine firmware to v21 (optimizations for state machine r2)
+-Added support for Bpod port array module
+-Updated rotary encoder class with several bug-fixes, support for 8 thresholds and support for capturing + timestamping state machine byte codes
+-Updated BControl patch to improve handling of laggy USB serial buffers on some systems
+
+---v1.55---
+-Fixed SSL handshake bug in PhoneHome program (CRITICAL)
+-Enabled rotary encoder module to log and timestamp bytes from state machine
+-Added 'unipolar' mode to rotary encoder module, for treadmill assays
+-Restored display of automatically changing parameters in BpodParameterGUI
+-Updated serial interface syntax used to relay Bonsai soft codes
+-Updated BControl patch to handle pausing and sound server reset following a MATLAB force-quit
+
+---v1.54---
+-Added Ethernet Module support with PsychToolbox (previously req. Instrument Ctrl Tlbx)
+-Added in-trial pause support to BControl patch
+-In BControl patch, added ability to list channels in any order in settings_custom.conf
+-In BControl patch, added ability to loop sounds on sound server (vs. looping sched. wave)
