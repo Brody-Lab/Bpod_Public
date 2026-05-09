@@ -29,13 +29,11 @@ if ~isempty(BpodSystem)
             pause(1);
             if bSettings('get','RIGS','bpodreboot') == 1
                 try
-                    %BpodSystem.PluginObjects.SoundServer.Port.write('Q','uint8')
-                    delete(BpodSystem.PluginObjects.SoundServer.Port);
+                    BpodSystem.PluginObjects.SoundServer.Port.write('Q','uint8')
                 end
                 pause(1);
                 try
-                    %BpodSystem.SerialPort.write('Q', 'uint8');
-                    delete(BpodSystem.SerialPort);
+                    BpodSystem.SerialPort.write('Q', 'uint8');
                 end
             end
         end

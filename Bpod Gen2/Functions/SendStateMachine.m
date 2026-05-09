@@ -325,6 +325,7 @@ if BpodSystem.EmulatorMode == 0
 %% Confirm send. Note: To reduce dead time, transmission is confirmed from state machine after next call to RunStateMachine()
     BpodSystem.Status.NewStateMachineSent = 1; % On next run, a byte is returned confirming that the state machine was received.
     BpodSystem.Status.SM2runASAP = runASAP;
+    BpodSystem.Status.StateMachineSendTime = now;
     Confirmed = 1;
 else
     Confirmed = 1;
